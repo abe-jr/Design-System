@@ -1,0 +1,6 @@
+<div [ngClass]="['csf-senha', classes]">
+  <div class="item" *ngFor="let char of valorInterno">
+    <span class="texto" *ngIf="mascara === false">{{ char }}</span>
+    <span class="char-mascara" [class.vazio]="char === ''" *ngIf="mascara === true"></span>
+  </div>
+</div>

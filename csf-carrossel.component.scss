@@ -1,0 +1,43 @@
+@import '../../sass/settings/theme';
+
+.csf-carrossel {
+  display: flex;
+  flex-direction: column;
+
+  .wrapper-itens {
+    overflow: hidden;
+
+    .container-itens {
+      display: flex;
+      transform: translateX(0);
+      transition: transform ease-out 150ms;
+
+      .csf-carrossel-item {
+        flex: 1;
+        overflow: hidden;
+        margin-right: 3.2rem;
+      }
+    }
+  }
+
+  .wrapper-indicadores {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+
+    .indicador {
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid $cor_primaria;
+      border-radius: 50%;
+      margin: 0 0.25rem;
+      background-color: transparent;
+      transition: background-color 200ms ease-out;
+
+      &.-ativo {
+        background-color: $cor_primaria;
+        transition: background-color 200ms ease-out;
+      }
+    }
+  }
+}

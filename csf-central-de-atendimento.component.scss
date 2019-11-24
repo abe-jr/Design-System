@@ -1,0 +1,23 @@
+@import '../../sass/styles.scss';
+
+.csf-central-de-atendimento {
+  font-family: $family;
+  color: $cor_texto;
+  text-align: center;
+
+  .duvidas {
+    margin-bottom: 1.6rem;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  .fone {
+    margin-bottom: 1.4rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .horario {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,6 @@
+<div [ngClass]="['csf-info-titulo-valor', classes]">
+  <div *ngIf="titulo !== null" class="titulo">{{ titulo }}</div>
+  <div class="valor">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+@import '../../sass/styles.scss';
+
+.csf-radio-grupo {
+    display: block;
+}
+
+.csf-radio {
+  position: relative;
+  padding-left: 0.5em;
+  font-family: $family;
+  font-size: 0.875em;
+  color: $cor_primaria;
+  font-weight: $regular;
+
+  input[type=radio] {
+    visibility: hidden;
+  }
+
+  .check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.875em;
+    height: 0.875em;
+    background-color: white;
+    border: 1px solid $cor_primaria;
+    border-radius: 0.875em;
+  }
+
+  input[type=radio]:checked ~ .check {
+    background: $cor_primaria;
+  }
+
+  &.seletor {
+      padding-left: 0;
+      font-weight: $negrito;
+
+      input[type=radio] ~ .texto {
+          display: inline-block;
+          padding: 1em 1.5em;
+          border-radius: 3px;
+      }
+
+      input[type=radio]:checked ~ .texto {
+          background-color: $cor_primaria;
+          color: white;
+      }
+
+      .check {
+          display: none;
+      }
+  }
+}

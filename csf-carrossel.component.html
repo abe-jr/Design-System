@@ -1,0 +1,24 @@
+<div
+  [ngClass]="['csf-carrossel', classes]"
+  [style.width]="largura + 'px'">
+  <div class="wrapper-itens"
+    #wrapperItens
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+    (touchmove)="onTouchMove($event)">
+    <div
+      class="container-itens"
+      [style.transform]="posicaoSlides"
+      [style.transition]="transicaoSlides">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div
+    class="wrapper-indicadores">
+    <div
+      *ngFor="let item of itensCarrossel; let idx = index"
+      class="indicador"
+      [ngClass]="{'-ativo': itemAtivo === idx}">
+    </div>
+  </div>
+</div>

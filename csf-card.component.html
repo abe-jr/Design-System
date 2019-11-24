@@ -1,0 +1,5 @@
+<div [ngClass]="['csf-card', semSombra ? '-sem-sombra' : '', classes]">
+  <ng-content select="csf-card-header"></ng-content>
+  <ng-content select="csf-card-conteudo"></ng-content>
+  <ng-content select="csf-card-acoes"></ng-content>
+</div>

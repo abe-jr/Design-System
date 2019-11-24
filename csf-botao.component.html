@@ -1,0 +1,12 @@
+<button
+  class="botao"
+  [ngClass]="[
+    'botao',
+    varianteBotao,
+    semBorda ? '-no-border' : '',
+    classes
+  ]"
+  [attr.disabled]="disabled || null"
+  >
+  <ng-content></ng-content>
+</button>

@@ -1,0 +1,37 @@
+@import '../../sass/styles.scss';
+
+.csf-senha {
+  display: flex;
+  justify-content: center;
+}
+.item {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  margin: 0.4rem;
+  border: 1px solid $cor_primaria;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 6px #0000000D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .texto {
+    font-family: $family;
+    font-size: 1.6rem;
+    font-weight: $negrito;
+    color: $cor_detalhe;
+  }
+
+  .char-mascara {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 5rem;
+    background-color: $cor_detalhe;
+
+    &.vazio {
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import "../../sass/styles";
+
+.csf-cabecalho {
+  background-color: $cor_secundaria;
+  width: 100%;
+  height: 5rem;
+  padding: 1.6rem 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z_medio;
+
+  >* {
+    color: white;
+  }
+
+  .area-botao {
+    display: flex;
+    width: 3rem;
+
+    >.botao-voltar,
+    >.botao-fechar {
+      background: 0 0;
+      border: none;
+    }
+  }
+
+  >.titulo {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 1.6rem;
+    padding: 0 1.6rem;
+    font-weight: $regular;
+    white-space: nowrap;
+  }
+
+  &.-fundobranco {
+    background-color: white;
+
+    >* {
+      color: $cor_terciaria;
+    }
+  }
+}

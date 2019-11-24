@@ -1,0 +1,27 @@
+@import '../../sass/styles.scss';
+
+.csf-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 3px;
+  background-color: white;
+
+  &:not(.-sem-sombra) {
+    @include boxShadow;
+  }
+
+  .csf-card-header {
+    display: block;
+    margin-bottom: 1.6rem;
+  }
+
+  .csf-card-conteudo {
+    display: block;
+  }
+
+  .csf-card-acoes {
+    display: flex;
+    margin-top: 10px;
+  }
+}

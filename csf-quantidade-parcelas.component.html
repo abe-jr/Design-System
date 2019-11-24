@@ -1,0 +1,66 @@
+<div [ngClass]="['csf-quantidade-parcelas', classes]">
+  <span *ngIf="mostraBotaoMais" class="texto-outra-quantidade"
+    >Outra quantidade</span
+  >
+  <div
+    class="borda"
+    [class.-ativa]="ativo || editando"
+    [class.-erro]="
+      ativo && (menorQueMinimoDeParcelas || maiorQueMaximoDeParcelas)
+    "
+  >
+    <div *ngIf="mostraBotaoMais" class="container-botao">
+      <button class="botao" (click)="ativaAlteracaoDeValor()">+</button>
+    </div>
+    <div *ngIf="mostraValorEditavel" class="container-input">
+      <div class="parcelas-custom">
+        <div class="area-input">
+          <input
+            #inputQtdParcelas
+            type="number"
+            class="input"
+            [(ngModel)]="qtdParcelasInterno"
+            (input)="atualizouQtdParcelas($event)"
+            (blur)="desativaAlteracaoDeValor($event)"
+          />
+          <span>x</span>
+        </div>
+        <span> de </span>
+        <span *ngIf="carregando">...</span>
+        <lib-dinheiro
+          *ngIf="!carregando"
+          fontSize="1.2"
+          fontSizeValorInteiro="1.6"
+          [dinheiro]="valorParcela | dinheiro"
+        ></lib-dinheiro>
+      </div>
+    </div>
+    <div
+      *ngIf="mostraValor"
+      class="container-input"
+      (click)="ativaAlteracaoDeValor()"
+    >
+      <div class="parcelas-custom">
+        <div class="area-input">{{ qtdParcelasInterno }}x</div>
+        <span> de </span>
+        <lib-dinheiro
+          *ngIf="!carregando"
+          fontSize="1.2"
+          fontSizeValorInteiro="1.6"
+          [dinheiro]="valorParcela | dinheiro"
+        ></lib-dinheiro>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  *ngIf="ativo && (menorQueMinimoDeParcelas || maiorQueMaximoDeParcelas)"
+  class="csf-quantidade-parcela-hint"
+>
+  <span *ngIf="menorQueMinimoDeParcelas">
+    O limite mínimo é de {{ this.min }} parcelas
+  </span>
+  <span *ngIf="maiorQueMaximoDeParcelas">
+    O limite máximo é de {{ this.max }} parcelas
+  </span>
+</div>

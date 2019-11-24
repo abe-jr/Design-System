@@ -1,0 +1,184 @@
+@import
+'../../sass/settings/theme',
+'../../sass/settings/fonts',
+'../../sass/tools/index';
+
+$fadeOut: #98bdde;
+
+.csf-linha-de-eventos {
+    margin: 0;
+    padding: 2.4rem;
+    background: $cor_secundaria;
+    border-radius: $borda-arredondada;
+    @include boxShadow;
+
+    .item {
+        display: grid;
+        grid-template-columns: 3.6rem 1fr;
+        grid-template-areas: "marker content";
+
+        .linha {
+            grid-area: marker;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            margin-right: 20px;
+
+            .vert {
+                position: absolute;
+                width: 0.4rem;
+                height: 100%;
+                background-color: $cinza_claro;
+                z-index: $z_baixo + 1;
+            };
+
+            .circulo {
+                position: absolute;
+                top: 0;
+                width: 2.0rem;
+                height: 2.0rem;
+                border-radius: 2.0rem;
+                z-index: $z_baixo + 2;
+                background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMS4xMiIgaGVpZ2h0PSI4LjI5IiB2aWV3Qm94PSIwIDAgMTEuMTIgOC4yOSI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtNS44MTQpIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDUuODE0KSI+PHBhdGggY2xhc3M9ImEiIGQ9Ik01LjAzMywxMy43MjZhMS4yOTEsMS4yOTEsMCwwLDEtMS44MjYsMEwuMzc4LDEwLjlBMS4yOTEsMS4yOTEsMCwxLDEsMi4yLDkuMDcxTDMuODksMTAuNzU2YS4zMjcuMzI3LDAsMCwwLC40NjEsMEw4LjkxNSw2LjE5MmExLjI5MSwxLjI5MSwwLDEsMSwxLjgyNiwxLjgyNloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTUuODE0KSIvPjwvZz48L2c+PC9zdmc+) no-repeat center center;
+                background-color: $cor_detalhe;
+            }
+        }
+
+        .conteudo {
+            grid-area: content;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 1.2rem;
+            font-family: $family;
+            color: white;
+
+            .titulo {
+                font-size: 1.6rem;
+                color: white;
+            }
+            .descricao {
+                font-size: 1.2rem;
+            }
+        }
+
+        &.-ativo {
+            .linha {
+                .circulo {
+                    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMS4xMiIgaGVpZ2h0PSI4LjI5IiB2aWV3Qm94PSIwIDAgMTEuMTIgOC4yOSI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtNS44MTQpIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDUuODE0KSI+PHBhdGggY2xhc3M9ImEiIGQ9Ik01LjAzMywxMy43MjZhMS4yOTEsMS4yOTEsMCwwLDEtMS44MjYsMEwuMzc4LDEwLjlBMS4yOTEsMS4yOTEsMCwxLDEsMi4yLDkuMDcxTDMuODksMTAuNzU2YS4zMjcuMzI3LDAsMCwwLC40NjEsMEw4LjkxNSw2LjE5MmExLjI5MSwxLjI5MSwwLDEsMSwxLjgyNiwxLjgyNloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTUuODE0KSIvPjwvZz48L2c+PC9zdmc+) no-repeat center center;
+                    background-color: $cor_detalhe;
+                }
+            }
+            .linha > .vert {
+                background-color: $fadeOut;
+            }
+        }
+
+        &.-passado {
+            .linha > .vert {
+                background-color: $cor_detalhe;
+            }
+        }
+
+        &.-futuro {
+            .linha {
+                .circulo {
+                    background: none;
+                    background-color: $fadeOut;
+                }
+                > .vert {
+                    background-color: $fadeOut;
+                }
+            }
+            .conteudo {
+                .titulo, .descricao {
+                    color: $fadeOut;
+                }
+            }
+        }
+
+        &:first-child {
+            align-items: flex-start;
+
+            .linha {
+                .circulo {
+                    top: 0;
+                }
+                > .vert.-acima {
+                    display: none;
+                }
+            }
+        }
+
+        &:last-child {
+            align-items: flex-start;
+
+            .linha {
+                .circulo {
+                    bottom: 0;
+                }
+                > .vert {
+                    display: none;
+                }
+            }
+
+            .conteudo {
+                padding-bottom: 0;;
+            }
+        }
+    }
+
+    &.-erro {
+        .item {
+            .linha {
+                .vert {}
+                .circulo {
+                    background-color: $cor_alerta;
+                }
+            }
+            .conteudo {
+                .titulo {}
+                .descricao {}
+            }
+            &.-ativo {
+                .linha {
+                    .vert {}
+                    .circulo {
+                        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzIiBoZWlnaHQ9IjEzIiB2aWV3Qm94PSIwIDAgMyAxMyI+DQogIDxnIGlkPSJHcm91cF8zNTMiIGRhdGEtbmFtZT0iR3JvdXAgMzUzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjUgLTI3NSkiPg0KICAgIDxyZWN0IGlkPSJSZWN0YW5nbGVfNDYiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDQ2IiB3aWR0aD0iMyIgaGVpZ2h0PSI5IiByeD0iMS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NSAyNzkpIiBmaWxsPSIjZmZmIi8+DQogICAgPHJlY3QgaWQ9IlJlY3RhbmdsZV80NyIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgNDciIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY1IDI3NSkiIGZpbGw9IiNmZmYiLz4NCiAgPC9nPg0KPC9zdmc+DQo=) no-repeat center center;
+                        background-color: $cor_alerta;
+                    }
+                }
+                .conteudo {
+                    .descricao {
+                        width: fit-content;
+                        margin-top: 0.2rem;
+                        padding: 0.1rem 0.4rem;
+                        border-radius: $borda_arredondada;
+                        background-color: $cor_alerta;
+                    }
+                }
+            }
+            &.-passado {
+                .linha {
+                    .vert {
+                        background-color: $cor_alerta;
+                    }
+                    .circulo {
+                        background: none;
+                        background-color: $cor_alerta;
+                    }
+                }
+            }
+            &.-futuro {
+                .linha {
+                    .vert {}
+                    .circulo {
+                        background-color: $fadeOut;
+                    }
+                }
+            }
+        }
+    }
+}

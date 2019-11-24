@@ -1,0 +1,25 @@
+@import '../../sass/settings/theme';
+
+.csf-seguro-desemprego {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  > .ilustracao {
+    margin-bottom: 2.4rem;
+
+    > img {
+      width: 4.6rem;
+    }
+  }
+
+  > .conteudo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.4rem;
+
+    &:last-of-type {
+      margin-bottom: 4rem;
+    }
+  }
+}

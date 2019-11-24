@@ -1,0 +1,22 @@
+<label [ngClass]="['csf-checkbox', classes]">
+  <input
+    type="checkbox"
+    [attr.name]="name"
+    [attr.value]="value"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="stopPropagation($event)"
+    (click)="_onInputClick($event)"
+  />
+  <div class="campo-checkbox">
+    <span class="check">
+      <em class="material-icons icon">
+        check
+      </em>
+    </span>
+    <span class="text" [innerHTML]="label | sanitizeHtml"> </span>
+    <div class="text" *ngIf="label === ''">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</label>

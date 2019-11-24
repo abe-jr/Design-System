@@ -1,0 +1,86 @@
+@import '../../sass/styles.scss';
+
+.csf-quantidade-parcelas {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+
+  .texto-outra-quantidade {
+    margin-right: 1.8rem;
+    font-size: 1.6rem;
+    color: $cor_primaria;
+  }
+
+  .borda {
+    height: 4.8rem;
+    width: 4.8rem;
+    border: 2px solid $cor_primaria;
+    border-radius: 0.5rem;
+    transition: all 150ms ease-out;
+
+    &.-ativa {
+      width: 100%;
+      background-color: $cor_primaria;
+      transition: all 150ms ease-out;
+    }
+
+    &.-erro {
+      border: 2px solid $cor_alerta;
+      background-color: $cor_alerta;
+    }
+
+    .container-botao {
+      height: 100%;
+
+      .botao {
+        width: 100%;
+        height: 100%;
+        color: $cor_primaria;
+        border: none;
+        background: transparent;
+        font-size: 3rem;
+      }
+    }
+    .container-input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      .parcelas-custom {
+        display: flex;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: right;
+
+        > * {
+          margin: 0 3px;
+        }
+
+        .area-input {
+          justify-self: flex-end;
+
+          input[type='number'] {
+            width: 5rem;
+            background-color: transparent;
+            color: white;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-align: right;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.csf-quantidade-parcela-hint {
+  display: block;
+  margin: 0.5rem 0;
+  font-family: $fonte_padrao;
+  font-size: 1.2rem;
+  color: $cor_alerta;
+}

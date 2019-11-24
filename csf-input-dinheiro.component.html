@@ -1,0 +1,22 @@
+<div [ngClass]="['csf-input-dinheiro', classes]">
+  <div class="container-dinheiro">
+    <lib-dinheiro
+      *ngIf="!editando"
+      [dinheiro]="valorInterno | dinheiro"
+      [fontSize]="2"
+      [fontSizeValorInteiro]="4">
+    </lib-dinheiro>
+    <input
+      *ngIf="editando"
+      #inputDinheiro
+      currencyMask
+      [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
+      class="input"
+      type="text"
+      [(ngModel)]="valorInterno.valor"
+      (blur)="onInputBlur()">
+  </div>
+  <button class="botao-icone" (click)="cliqueBotaoEditar()">
+    <csf-icone tamanho="24">editar</csf-icone>
+  </button>
+</div>

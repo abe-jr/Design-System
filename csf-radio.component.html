@@ -1,0 +1,18 @@
+<label [ngClass]="[
+  'csf-radio',
+  tipo === 'seletor' ? 'seletor' : '',
+  classes
+]">
+  <input
+    type="radio"
+    [checked]="checkedInterno"
+    [disabled]="disabled"
+    [attr.name]="name"
+    [required]="required"
+    [value]="value"
+    (change)="onInputChange($event)">
+  <span class="texto">
+    <ng-content></ng-content>
+  </span>
+  <div class="check"></div>
+</label>

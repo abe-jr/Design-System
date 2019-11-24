@@ -1,0 +1,21 @@
+<header *ngIf="mostrarCabecalho" [ngClass]="['csf-cabecalho', classeTema, classes]">
+  <div class="area-botao">
+    <button
+      *ngIf="mostrarBotaoVoltar"
+      class="botao-voltar"
+      (click)="clickVoltar()"
+    >
+      <csf-icone tamanho="3rem" [cor]="corSetas">chevron_left</csf-icone>
+    </button>
+  </div>
+  <h1 class="titulo">{{ titulo }}</h1>
+  <div class="area-botao">
+    <button
+      *ngIf="mostrarBotaoFechar"
+      class="botao-fechar"
+      (click)="clickFechar()"
+    >
+      <csf-icone tamanho="2.5rem" [cor]="corSetas">close</csf-icone>
+    </button>
+  </div>
+</header>

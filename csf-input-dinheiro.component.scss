@@ -1,0 +1,36 @@
+@import '../../sass/styles.scss';
+
+.csf-input-dinheiro {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 6rem;
+	padding-left: 1.6rem;
+	border-radius: $borda_arredondada;
+	background-color: rgba($cor_primaria, 0.1);
+	box-sizing: border-box;
+
+	.container-dinheiro {
+		flex: 1;
+
+		lib-dinheiro,
+		.input {
+			display: block;
+			width: 100%;
+			font-family: $family;
+			font-size: 4rem;
+			font-weight: bold;
+			color: $cor_primaria;
+			border: none;
+			background-color: transparent;
+		}
+	}
+
+	.botao-icone {
+		width: 5rem;
+		padding: 1.4rem;
+		border: none;
+		background-color: transparent;
+	}
+}

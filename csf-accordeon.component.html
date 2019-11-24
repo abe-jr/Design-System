@@ -1,0 +1,8 @@
+<div [ngClass]="['csf-accordeon', classes]">
+  <div class="header" (click)="toggleEstado()">
+    <ng-content select="csf-accordeon-header"></ng-content>
+  </div>
+  <div class="descricao" *ngIf="aberto">
+    <ng-content select="csf-accordeon-descricao"></ng-content>
+  </div>
+</div>

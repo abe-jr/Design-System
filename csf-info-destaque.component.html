@@ -1,0 +1,19 @@
+<div class="csf-info-destaque" [ngClass]="{
+  '-alerta': tipo === 'alerta'
+}">
+<div [ngClass]="[
+  'csf-info-destaque',
+  tipo === 'alerta' ? '-alerta' : '',
+  classes
+]">
+  <div class="icone">
+    <csf-icone
+      *ngIf="tipo !== null"
+      tamanho="1.6rem">
+      {{ tipoIcone }}
+    </csf-icone>
+  </div>
+  <div class="conteudo">
+    <ng-content></ng-content>
+  </div>
+</div>

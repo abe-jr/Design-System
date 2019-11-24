@@ -1,0 +1,22 @@
+<ul [ngClass]="['csf-linha-de-eventos', classesEstado, classes]">
+  <li
+    class="item"
+    *ngFor="let item of itens; let i = index"
+    [ngClass]="{
+      '-ativo': i === indexSelecionado,
+      '-passado': i < indexSelecionado,
+      '-futuro': i > indexSelecionado
+    }"
+    >
+    <div class="linha">
+      <div class="vert"></div>
+      <div class="circulo"></div>
+    </div>
+    <div class="conteudo">
+      <span class="titulo">{{ item.titulo }}</span>
+      <span *ngIf="item.descricao && item.descricao.length > 0" class="descricao">
+        {{ item.descricao }}
+      </span>
+    </div>
+  </li>
+</ul>

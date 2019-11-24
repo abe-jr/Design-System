@@ -1,0 +1,88 @@
+@import "../../sass/styles";
+
+
+%rounded-border-btn {
+  border-radius: 0.1875em;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+}
+
+.botao {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: $negrito;
+  padding: 1.2rem 0;
+  font-size: 1.4rem;
+  border-radius: 2.5rem;
+  border: none;
+  cursor: pointer;
+  @include transition;
+  @include flex_center;
+
+  &.-main {
+    background-color: $cor_primaria;
+    color: white;
+  }
+
+  &.-main[disabled=true] {
+    background-color: rgba($cor_primaria, 0.5);
+    cursor: default;
+  }
+
+  &.-rounded {
+    @extend %rounded-border-btn;
+    background-color: $cor_primaria;
+    color: white;
+  }
+
+  &.-rounded[disabled=true] {
+    background-color: rgba($cor_primaria, 0.5);
+    cursor: default;
+  }
+
+  &.-text {
+    color: $azul_medio;
+  }
+
+  &.-icon {
+    margin: 0 1rem;
+  }
+
+  &.-outline,
+  &.-rounded-outline {
+    background-color: transparent;
+    color: $cor_primaria;
+    border: 2px solid $cor_primaria;
+  }
+
+  &.-outline[disabled=true],
+  &.-rounded-outline[disabled=true] {
+    color: rgba($cor_primaria, 0.5);
+    border: 2px solid rgba($cor_primaria, 0.5);
+    cursor: default;
+  }
+
+  &.-rounded-outline {
+    @extend %rounded-border-btn;
+    font-size: 1em;
+  }
+
+  &.-no-border {
+    background-color: transparent;
+    color: $cor_primaria;
+  }
+
+  &.-no-border[disabled=true] {
+    color: rgba($cor_primaria, 0.5);
+  }
+
+  &.-loading {
+    width: 4.6rem;
+    height: 4.6rem;
+    padding: 0;
+  }
+
+  >.text {
+    margin: 0 auto;
+  }
+}

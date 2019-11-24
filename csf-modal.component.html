@@ -1,0 +1,15 @@
+<div
+  [ngClass]="[
+    'csf-modal-overlay',
+    abertoInterno ? '-aberto' : '',
+    classes
+  ]"
+  (click)="clickOverlay($event)">
+  <div
+    class="csf-modal"
+    (click)="removePropagacao($event)">
+    <ng-content select="csf-modal-titulo"></ng-content>
+    <ng-content select="csf-modal-conteudo"></ng-content>
+    <ng-content select="csf-modal-acoes"></ng-content>
+  </div>
+</div>

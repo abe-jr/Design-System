@@ -1,0 +1,29 @@
+<div [ngClass]="['input-container', classes]">
+  <div [ngClass]="classesCss">
+    <div class="-esquerda"></div>
+    <div
+      #gap
+      class="-gap"
+      [style.width]="tamanhoLabel + 'px'"
+      [style.borderTopColor]="controle.labelFlutuante ? 'transparent' : null"
+    ></div>
+    <div class="-direita"></div>
+  </div>
+  <div class="area-input" [class.-com-icone]="comIcone !== null">
+    <csf-icone *ngIf="comIcone !== null" [classes]="classeNgForm">{{
+      comIcone
+    }}</csf-icone>
+    <ng-content></ng-content>
+    <label
+      #label
+      class="label"
+      [class.flutuando]="controle.labelFlutuante === true"
+    >
+      {{ controle.placeholder }}
+    </label>
+    <ng-content select="csf-campo-form-acao"></ng-content>
+  </div>
+</div>
+<span [ngClass]="['texto-de-apoio', classeNgForm]">
+  {{ textoDeApoio ? textoDeApoio : '' }}
+</span>

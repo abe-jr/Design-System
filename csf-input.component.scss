@@ -1,0 +1,259 @@
+@import '../../sass/styles.scss';
+
+.input-container {
+  position: relative;
+  height: 5rem;
+  margin-bottom: 3.2rem;
+  padding-left: 1.6rem;
+  box-sizing: border-box;
+
+  .outline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .-esquerda {
+      width: 1.6rem;
+      border-top: 1px solid $cor_texto;
+      border-left: 1px solid $cor_texto;
+      border-bottom: 1px solid $cor_texto;
+      border-top-left-radius: $borda_arredondada;
+      border-bottom-left-radius: $borda_arredondada;
+    }
+    .-gap {
+      width: 0;
+      border-top: 1px solid $cor_texto;
+      border-bottom: 1px solid $cor_texto;
+    }
+    .-direita {
+      flex: 1;
+      border-top: 1px solid $cor_texto;
+      border-right: 1px solid $cor_texto;
+      border-bottom: 1px solid $cor_texto;
+      border-top-right-radius: $borda_arredondada;
+      border-bottom-right-radius: $borda_arredondada;
+    }
+
+    &.-focado {
+      .-esquerda {
+        border-top: 1px solid $cor_primaria;
+        border-left: 1px solid $cor_primaria;
+        border-bottom: 1px solid $cor_primaria;
+      }
+      .-gap {
+        border-top: 1px solid $cor_primaria;
+        border-bottom: 1px solid $cor_primaria;
+      }
+      .-direita {
+        border-top: 1px solid $cor_primaria;
+        border-right: 1px solid $cor_primaria;
+        border-bottom: 1px solid $cor_primaria;
+      }
+    }
+
+    &:not(.-focado) ~ .area-input {
+        color: $cor_texto;
+    }
+
+    &.ng-valid {
+      .-esquerda {
+        border-top: 1px solid $cor_sucesso;
+        border-left: 1px solid $cor_sucesso;
+        border-bottom: 1px solid $cor_sucesso;
+      }
+      .-gap {
+        border-top: 1px solid $cor_sucesso;
+        border-bottom: 1px solid $cor_sucesso;
+      }
+      .-direita {
+        border-top: 1px solid $cor_sucesso;
+        border-right: 1px solid $cor_sucesso;
+        border-bottom: 1px solid $cor_sucesso;
+      }
+      & + .area-input {
+        input,
+        .label {
+          color: $cor_sucesso;
+        }
+      }
+    }
+
+    &.ng-invalid {
+      .-esquerda {
+        border-top: 1px solid $cor_alerta;
+        border-left: 1px solid $cor_alerta;
+        border-bottom: 1px solid $cor_alerta;
+      }
+      .-gap {
+        border-top: 1px solid $cor_alerta;
+        border-bottom: 1px solid $cor_alerta;
+      }
+      .-direita {
+        border-top: 1px solid $cor_alerta;
+        border-right: 1px solid $cor_alerta;
+        border-bottom: 1px solid $cor_alerta;
+      }
+      & + .area-input {
+        input,
+        .label {
+          color: $cor_alerta;
+        }
+      }
+    }
+
+    &.ng-pending {
+      .-esquerda {
+        border-top: 1px solid $cor_alerta;
+        border-left: 1px solid $cor_alerta;
+        border-bottom: 1px solid $cor_alerta;
+      }
+      .-gap {
+        border-top: 1px solid $cor_alerta;
+        border-bottom: 1px solid $cor_alerta;
+      }
+      .-direita {
+        border-top: 1px solid $cor_alerta;
+        border-right: 1px solid $cor_alerta;
+        border-bottom: 1px solid $cor_alerta;
+      }
+      & + .area-input {
+        input {
+          color: $cinza_escuro;
+        }
+
+        .label {
+          color: $cor_alerta;
+        }
+      }
+    }
+
+    &.-desabilitado {
+      opacity: 0.5;
+      & + * {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .area-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1.6rem;
+    padding-left: 0;
+
+    .label {
+      position: absolute;
+      // top: calc(1.6rem + .6rem);
+      font-size: 1.6rem;
+      left: 0;
+      transition: all ease-out 150ms;
+
+      &.flutuando {
+        top: 0;
+        padding-left: 0.6rem;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        transition: all ease-out 150ms;
+        color: $cor_secundaria;
+      }
+    }
+
+    &.-com-icone {
+      > input {
+        margin-left: 1rem;
+      }
+      > .label:not(.flutuando) {
+        left: 3.2rem;
+      }
+    }
+  }
+
+  input, select {
+    width: 100%;
+    font-size: 1.6rem;
+    color: $cor_secundaria;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    z-index: 1;
+
+    &::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: transparent;
+    }
+    &:-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: transparent;
+    }
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      color: transparent;
+    }
+  }
+
+  select {
+    padding: 0.4rem 0;
+  }
+
+  csf-campo-form-acao {
+    cursor: pointer;
+  }
+}
+
+input::placeholder {
+  color: transparent;
+}
+textarea::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: transparent;
+}
+textarea:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: transparent;
+}
+textarea::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: transparent;
+}
+textarea:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: transparent;
+}
+textarea::placeholder {
+  color: transparent;
+}
+input {
+  border: none;
+}
+
+.texto-de-apoio {
+  display: block;
+  color: $cinza;
+  font-size: 1rem;
+  min-height: 1.5rem;
+  padding-top: 0.4rem;
+  margin-top: -3.2rem;
+  margin-bottom: 1.7rem;
+
+  &.ng-invalid {
+    color: $cor_alerta;
+  }
+
+  &.ng-pending {
+    color: $cor_alerta;
+  }
+
+  &.ng-valid {
+    color: $cor_sucesso;
+  }
+}

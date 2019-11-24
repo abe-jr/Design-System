@@ -1,0 +1,64 @@
+@import '../../sass/styles.scss';
+
+.csf-checkbox {
+  position: relative;
+  display: block;
+  padding-left: 0.5em;
+  font-family: $family;
+  font-size: 0.875em;
+  color: $cor_primaria;
+  font-weight: $regular;
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+
+    &:checked ~ .campo-checkbox {
+      > .check {
+        transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+        background-color: $cor_primaria;
+
+        > .icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .campo-checkbox {
+    display: flex;
+
+    > .text {
+      color: #575757;
+      font-size: 1.4rem;
+      font-weight: $regular;
+      line-height: 2.1rem;
+
+      a {
+        color: $cor_primaria;
+        text-decoration: underline;
+      }
+    }
+
+    > .check {
+      width: 2rem;
+      height: 2rem;
+      border: 0.1rem solid $cor_primaria;
+      border-radius: 0.3rem;
+      margin-right: 0.8rem;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      > .icon {
+        width: initial;
+        height: initial;
+        font-size: 1.6rem;
+        color: white;
+        opacity: 0;
+      }
+    }
+  }
+}

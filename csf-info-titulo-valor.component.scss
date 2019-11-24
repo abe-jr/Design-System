@@ -1,0 +1,18 @@
+@import '../../sass/styles.scss';
+
+.csf-info-titulo-valor {
+  display: flex;
+  flex-direction: column;
+  font-family: $family;
+  color: $cinza_escuro;
+
+  .titulo {
+    font-size: 0.75em;
+    margin-bottom: 0.45em;
+  }
+
+  .valor {
+    font-size: 1em;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,25 @@
+@import '../../sass/styles.scss';
+
+.csf-info-destaque {
+    display: flex;
+    padding: 1.6rem;
+    border-radius: $borda_arredondada;
+    border: 1px solid $cor_detalhe;
+
+    &.-alerta {
+        csf-icone, .conteudo {
+            color: $cor_detalhe;
+        }
+    }
+
+    .icone {
+        width: 2.4rem;
+        margin-top: 0.4rem;
+    }
+
+    .conteudo {
+        flex: 1;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+}

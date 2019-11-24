@@ -1,0 +1,15 @@
+{
+	"name": "csf-lib-components",
+	"version": "2.0.0",
+	"dependencies": {
+		"ngx-currency": "^2.0.0"
+	},
+	"peerDependencies": {
+		"@angular/common": "^7.2.0",
+		"@angular/core": "^7.2.0",
+		"csf-canais-digitais-lib-cache": "^1.1.2",
+		"csf-canais-digitais-lib-cliente": "^1.0.4",
+		"csf-lib-formatador": "^4.0.2",
+		"csf-types": "^3.0.1"
+	}
+}

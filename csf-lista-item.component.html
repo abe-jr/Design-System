@@ -1,0 +1,12 @@
+<div [ngClass]="['csf-lista-item', classes]">
+  <div class="lado-esquerdo">
+    <ng-content select="[csf-lista-item-icone-esquerda], [csfListaItemIconeEsquerda]"></ng-content>
+    <ng-content select="csf-lista-item-titulo, [csf-lista-item-titulo], [csfListaItemTitulo]"></ng-content>
+    <ng-content select="csf-lista-item-subtitulo, [csf-lista-item-subtitulo], [csfListaItemSubTitulo]"></ng-content>
+    <ng-content select="csf-lista-item-descricao, [csf-lista-item-descricao], [csfListaItemDescricao]"></ng-content>
+  </div>
+  <div class="lado-direito">
+    <ng-content select="[csf-lista-item-icone-direita], [csfListaItemIconeDireita]"></ng-content>
+    <ng-content select="csf-lista-item-texto, [csf-lista-item-texto], [csfListaItemTexto]"></ng-content>
+  </div>
+</div>
